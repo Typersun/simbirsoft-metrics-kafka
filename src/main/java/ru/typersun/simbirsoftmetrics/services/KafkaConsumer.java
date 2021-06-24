@@ -9,7 +9,7 @@ import ru.typersun.simbirsoftmetrics.dto.MessageDto;
 @AllArgsConstructor
 public class KafkaConsumer {
     private final UniqueWordsService uniqueWordsService;
-    @KafkaListener(topics = "metrics_messages", groupId = "metrics", containerFactory = "greetingKafkaListenerContainerFactory")
+    @KafkaListener(topics = "metrics_messages", groupId = "metrics", containerFactory = "KafkaListenerContainerFactory")
     public void getMessage(MessageDto message) {
         uniqueWordsService.saveUniqueWords(message);
     }
